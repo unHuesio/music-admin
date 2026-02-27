@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Acoustic Guitar",
+    "description": "6-string dreadnought with spruce top",
+    "price": 399.99
+  },
+  {
+    "id": 2,
+    "name": "MIDI Keyboard",
+    "description": "49-key controller with velocity sensitivity",
+    "price": 149.0
+  },
+  {
+    "id": 3,
+    "name": "Studio Headphones",
+    "description": "Closed-back monitoring headphones",
+    "price": 89.5
+  },
+  {
+    "id": 4,
+    "name": "Audio Interface",
+    "description": "2-in/2-out USB-C interface",
+    "price": 179.0
+  },
+  {
+    "id": 5,
+    "name": "Dynamic Microphone",
+    "description": "Cardioid vocal microphone",
+    "price": 99.99
+  },
+  {
+    "id": 6,
+    "name": "Drum Pad Controller",
+    "description": "16 RGB pads for beat production",
+    "price": 229.0
+  }
+]
