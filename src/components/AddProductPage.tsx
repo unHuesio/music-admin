@@ -30,7 +30,6 @@ function AddProductPage() {
         formData.append("coverArtUrl", data.coverArt[0]);
         mutation.mutate(formData);
     }
-
   return (
     <div>
       <h1 className="text-3xl font-bold underline"><NavLink to="/">Music Admin</NavLink></h1>
@@ -61,7 +60,7 @@ function AddProductPage() {
           <input type="file" {...register("coverArt", { required: 'Cover art is required' })} id="coverArtUrl" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" />
           {errors.coverArt && <p className="text-red-500 text-sm mt-1">{errors.coverArt.message}</p>}
         </div>
-        <button type="submit" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-300">Add Product</button>
+        <button type="submit" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-300" disabled={mutation.isPending}>Add Product</button>
         {mutation.isError && (
           <p className="text-red-500 text-sm mt-2">{mutation.error.message}</p>
         )}
