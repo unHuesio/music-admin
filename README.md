@@ -17,3 +17,9 @@ This template provides a minimal setup to get React working in Vite with HMR and
 ```pnpm run test``` run tests
 
 ```pnpm run build``` run build application
+
+#### Live application
+
+App can be accesed through
+
+ https://abe-music-admin.netlify.app/
