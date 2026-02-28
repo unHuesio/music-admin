@@ -1,11 +1,11 @@
 import ProductCard from './ProductCard';
 import { useQuery } from '@tanstack/react-query';
 import { fetchProducts } from '../api/products';
-const baseUrl = import.meta.env.VITE_BASE_URL;
+import './ProductList.css';
+import Loader from './Loader';
 
 function parseImageUrl(url: string): string {
-    const newUrl = url.replace('original', 'small');
-    return `${baseUrl}${newUrl}`;
+    return url.replace('original', 'small');
 }
 
 function ProductList() {
@@ -20,15 +20,15 @@ function ProductList() {
   });
 
   if (isLoading) {
-    return <p className="my-4">Loading products...</p>;
+    return <p className="loading"><Loader /> Loading products...</p>;
   }
 
   if (isError) {
-    return <p className="my-4 text-red-600">{error.message}</p>;
+    return <p className="error">{error.message}</p>;
   }
 
   return (
-    <div className="product-list my-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <div className="product-list">
       {products?.map((product) => (
         <ProductCard
           key={product.id}

@@ -3,6 +3,7 @@ import type { SubmitHandler } from "react-hook-form"
 import { addProduct } from "../api/products"
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { NavLink, useNavigate } from "react-router";
+import './AddProductPage.css'
 
 interface IFormData {
     name: string;
@@ -32,40 +33,42 @@ function AddProductPage() {
     }
   return (
     <div>
-      <h1 className="text-3xl font-bold underline"><NavLink to="/">Music Admin</NavLink></h1>
-      <h2 className="my-4 text-2xl font-bold">Add Product</h2>
-      <form onSubmit={handleSubmit(onSubmit)} className="my-4 max-w-sm mx-auto p-4 border border-gray-300 rounded shadow">
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+      <h1 className="header"><NavLink to="/">Music Admin</NavLink></h1>
+      <h2 className="subheader">Add Product</h2>
+      <form onSubmit={handleSubmit(onSubmit)} className="form">
+        <div className="input-wrapper">
+          <label htmlFor="name" className="label">Name</label>
           <input 
             {...register("name", 
                 { required: 'Product name is required',
                   minLength: { value: 2, message: 'Name must be at least 2 characters' },
                   maxLength: { value: 25, message: 'Name cannot exceed 25 characters' }
                 })} 
-            id="name" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" />
-          {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
+            id="name" className="input" disabled={mutation.isPending} />
+          {errors.name && <p className="input-error">{errors.name.message}</p>}
         </div>
-        <div className="mb-4">
-          <label htmlFor="artistName" className="block text-sm font-medium text-gray-700">Artist</label>
+        <div className="input-wrapper">
+          <label htmlFor="artistName" className="label">Artist</label>
           <input {...register("artist", {
              required: 'Artist name is required',
              minLength: { value: 2, message: 'Artist name must be at least 2 characters' },
              maxLength: { value: 25, message: 'Artist name cannot exceed 25 characters' }
-              })} id="artistName" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" />
-          {errors.artist && <p className="text-red-500 text-sm mt-1">{errors.artist.message}</p>}
+              })} id="artistName" className="input" disabled={mutation.isPending} />
+          {errors.artist && <p className="input-error">{errors.artist.message}</p>}
         </div>
-        <div className="mb-4">
-          <label htmlFor="coverArtUrl" className="block text-sm font-medium text-gray-700">Cover Art URL</label>
-          <input type="file" {...register("coverArt", { required: 'Cover art is required' })} id="coverArtUrl" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" />
-          {errors.coverArt && <p className="text-red-500 text-sm mt-1">{errors.coverArt.message}</p>}
+        <div className="input-wrapper">
+          <label htmlFor="coverArtUrl" className="label">Cover Art URL</label>
+          <input type="file" {...register("coverArt", { required: 'Cover art is required' })} id="coverArtUrl" className="input" disabled={mutation.isPending} />
+          {errors.coverArt && <p className="input-error">{errors.coverArt.message}</p>}
         </div>
-        <button type="submit" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-300" disabled={mutation.isPending}>Add Product</button>
+        <button type="submit" className="add-button" disabled={mutation.isPending}>
+            {mutation.isPending ? 'Submitting...' : 'Add Product'}
+        </button>
         {mutation.isError && (
-          <p className="text-red-500 text-sm mt-2">{mutation.error.message}</p>
+          <p className="input-error">{mutation.error.message}</p>
         )}
         {mutation.isSuccess && (
-          <p className="text-green-600 text-sm mt-2">Product added successfully.</p>
+          <p className="success-message">Product added successfully.</p>
         )}
       </form>
     </div>
