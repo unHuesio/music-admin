@@ -7,7 +7,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
 - React router: to handle routes
 - React hook form: to handle forms
 - React query: to handle api/fetch
-- Tailwind: to have easy premade style to use
+- Tailwind: to have easy premade base style
 - Vitest: for testing components
 
 #### Commands
