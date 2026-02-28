@@ -23,3 +23,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
 App can be accesed through
 
  https://abe-music-admin.netlify.app/
+
+ #### Deployment
+
+ Netlify - Free Basic Site Hosting
