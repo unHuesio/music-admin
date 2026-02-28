@@ -57,7 +57,7 @@ function AddProductPage() {
           {errors.artist && <p className="input-error">{errors.artist.message}</p>}
         </div>
         <div className="input-wrapper">
-          <label htmlFor="coverArtUrl" className="label">Cover Art URL</label>
+          <label htmlFor="coverArtUrl" className="label">Cover Art Image</label>
           <input type="file" {...register("coverArt", { required: 'Cover art is required' })} id="coverArtUrl" className="input" disabled={mutation.isPending} />
           {errors.coverArt && <p className="input-error">{errors.coverArt.message}</p>}
         </div>
