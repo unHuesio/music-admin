@@ -28,7 +28,7 @@ function AddProductPage() {
         const formData = new FormData();
         formData.append("name", data.name);
         formData.append("artistName", data.artist);
-        formData.append("coverArtUrl", data.coverArt[0]);
+        formData.append("coverArt", data.coverArt[0]);
         mutation.mutate(formData);
     }
   return (
@@ -57,8 +57,8 @@ function AddProductPage() {
           {errors.artist && <p className="input-error">{errors.artist.message}</p>}
         </div>
         <div className="input-wrapper">
-          <label htmlFor="coverArtUrl" className="label">Cover Art Image</label>
-          <input type="file" {...register("coverArt", { required: 'Cover art is required' })} id="coverArtUrl" className="input" disabled={mutation.isPending} />
+          <label htmlFor="coverArt" className="label">Cover Art Image</label>
+          <input type="file" {...register("coverArt", { required: 'Cover art is required' })} id="coverArt" className="input" disabled={mutation.isPending} />
           {errors.coverArt && <p className="input-error">{errors.coverArt.message}</p>}
         </div>
         <button type="submit" className="add-button" disabled={mutation.isPending}>
