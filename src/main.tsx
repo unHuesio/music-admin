@@ -5,7 +5,7 @@ import { RouterProvider } from "react-router/dom";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import './index.css'
 import App from './App.tsx'
-import AddProductPage from './components/AddProductPage.tsx';
+import AddProductPage from './pages/AddProductPage.tsx';
 
 const router = createBrowserRouter([
   {
